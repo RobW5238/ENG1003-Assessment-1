@@ -21,43 +21,23 @@ int main()
     {
       switch (x)
       {
-        void rotationCipher(char* Text, int key)
+        void rotationCipher(char* Text, int key);
         case 'a':
-        printf("you have selected to encrypt a message\n");
-        int key;
-        char Text[101];
-        printf("rotation cipher encryption software\n\n" );
-        printf(" .\n");
-        printf(" .\n");
-        printf(" .\n\n");
-        printf("Enter the message to be encrypted;\n\n");
-        fgets(Text, sizeof(Text), stdin);
-        printf("\nenter the value of the encryption key;\n\n" );
-        scanf("%d",&key);
-        printf("\nthe encrypted message is:\n\n" );
-        rotationCipher(Text, key);
-        return 0;
-        system("pause");
+          printf("selected a\n");
+          break;
+        case 'b':
+          printf("selected b\n");
+          break;
+        case 'c':
+          printf("terminating program\n");
+          return 0;
+          break;
 
 
-
-        {
-          int i=0;
-          int val;
-          char encTxt;
-
-          while(Text[i] != '\0' && strlen(Text)-1 > i)
-          {
-            val = ((int)Text[i] + key);
-            encTxt = (char)(val);
-            printf ("%c", encTxt);
-            i++;
-          }
-        printf("\n\n" );
-        }
 
       }
-      printf("unknown command, learn to read you drip\n" );
+
+      return 0;
 
     }
   return 0;
