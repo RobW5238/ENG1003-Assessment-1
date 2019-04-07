@@ -29,11 +29,11 @@ int main()
       {
         case 'a':
           printf("\nselected encryption\n");
-          exRotationCipher();
+          encrypt();
           break;
         case 'b':
-          printf("selected b\n");
-          return 0;
+          printf("selected decrypt\n");
+          decrypt();
           break;
         case 'c':
           printf("terminating program\n");
@@ -46,25 +46,40 @@ int main()
 }
 
 
-int exRotationCipher()
+int encrypt()
 {
-  fflush(stdin);
+  fflush(stdin); //using fgets after scanf(used in the menu) caused the code to
+  //skip to the end of the function. fflush clears a reminant \n that caused this
   int key;
   char Text[101];
   printf("\nrotation cipher encryption software\n\n" );
-  printf(" .\n");
-  printf(" .\n");
-  printf(" .\n\n");
+  printf(".\n.\n.\n\n");
   printf("Enter the message to be encrypted;\n\n");
   fgets(Text, sizeof(Text), stdin);
   printf("\nenter the value of the encryption key;\n\n" );
   scanf("%d",&key);
   printf("\nthe encrypted message is:\n\n" );
-  rotationCipher(Text, key);
+  rotationEncryption(Text, key);
   system("pause");
 }
 
-void rotationCipher(char* Text, int key)
+int decrypt ()
+{
+  fflush(stdin);
+  int key;
+  char Text[101];
+  printf("\nrotation cipher decryption software\n\n" );
+  printf(".\n.\n.\n\n");
+  printf("Enter the message to be decrypted;\n\n");
+  fgets(Text, sizeof(Text), stdin);
+  printf("\nenter the value of the decryption key;\n\n" );
+  scanf("%d",&key);
+  printf("\nthe decrypted message is:\n\n" );
+  rotationDecryption(Text, key);
+  system("pause");
+}
+
+void rotationEncryption(char* Text, int key)
 {
   int i=0;
   int val;
@@ -77,4 +92,22 @@ void rotationCipher(char* Text, int key)
       i++;
     }
   printf("\n\n" );
+  return 0;
+}
+
+void rotationDecryption(char* Text, int key)
+{
+  int i=0;
+  int val;
+  char encTxt;
+
+  while(Text[i] != '\0' && strlen(Text)-1 > i)
+  {
+    val = ((int)Text[i] - key);
+    encTxt = (char)(val);
+    printf ("%c", encTxt);
+    i++;
+  }
+  printf("\n\n" );
+  return 0;
 }
