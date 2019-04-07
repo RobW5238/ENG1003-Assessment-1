@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void rotationCipher(char* Text, int key);
+//void rotationCipher(char* Text, int key);
 
 int main(void)
 {
