@@ -18,11 +18,6 @@ int main()
   char c;
   scanf ("%c", &x);
 
-
-
-
-
-
   while (x>='a' && x<='c')
     {
       switch (x)

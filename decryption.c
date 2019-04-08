@@ -16,8 +16,10 @@ int main(void)
   fgets(Text, sizeof(Text), stdin);
   printf("enter the value of the decryption key;\n" );
   scanf("%d",&key);
-  printf("the decrypted message is:\n" );
+  printf("the software decrypted message:\n" );
   rotationCipher(Text, key);
+  printf("from:\n");
+  printf("%char",Text);
   return 0;
   system("pause");
 }
