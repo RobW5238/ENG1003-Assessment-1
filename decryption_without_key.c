@@ -58,6 +58,8 @@ void rotationCipher(char* Text, int key)
   }
 printf("\n" );
 }
+
+
 /*
   switch(Text[c])
   {
