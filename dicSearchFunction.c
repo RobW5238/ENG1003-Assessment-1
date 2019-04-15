@@ -13,8 +13,8 @@ int main()
   char deText[100];
   FILE *filePointer = fopen("dictionary.txt", "r");
   printf("enter text to search dic\n" );
-  //gets(&deText);
-  scanf("%s", deText);
+  gets(&deText);
+  //scanf("%s", deText);
   printf("text received\n" );
   if (filePointer == NULL)
   {

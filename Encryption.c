@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-//void rotationCipher(char* Text, int key);
+void rotationCipher(char* Text, int key);
 
 int main(void)
 {
@@ -19,7 +19,7 @@ int main(void)
   printf("\nthe encrypted message is:\n\n" );
   rotationCipher(Text, key);
   return 0;
-  system("pause");
+  //system("pause");
 }
 
 void rotationCipher(char* Text, int key)

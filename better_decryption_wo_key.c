@@ -20,6 +20,7 @@ int main(void)
   printf(".\n.\n.\n\n");
   printf("Enter the message to be decrypted;\n\n");
   gets(Text);
+  //scanf("%s",Text);
   length = strlen(Text);
   printf("the word has %d characters\n", length);
   charIncrement(Text, length);
@@ -66,7 +67,7 @@ void searchDic()
     int matchFound = 0;
     int key = 1;
     int test =3;
-    int boi =0;
+    int boi ;
     char string[50];
     int t = 0;
     char deText[100];
