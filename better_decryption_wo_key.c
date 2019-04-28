@@ -11,7 +11,7 @@ int main(void)
 
   int x;
   int length;
-  int c = 1;//this is the second character of the entered text
+  int c = 1;
   int key;
   char deText;
 
@@ -67,7 +67,7 @@ void searchDic()
     int matchFound = 0;
     int key = 1;
     int test =3;
-    int boi ;
+    int boi;
     char string[50];
     int t = 0;
     char deText[100];
