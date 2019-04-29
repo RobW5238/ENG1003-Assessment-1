@@ -6,10 +6,11 @@
 
 void randSubEncrypt();
 void subEncrypt();
+void customSubEncrypt();
 
 char Text[100];
 int c;
-//str fileName;
+
 
 int main()
 {
@@ -23,40 +24,41 @@ int main()
   printf("b) encrypt with custom key\n\n");
   fflush(stdin);
   scanf("%c", &c);
-  //c= 97;
-  //printf("%c\n\n",c);
-  //fflush(stdin);
 
   switch(c)
     {
       case(97):
         printf("random key encryption selected\n");
-        //filename =
         randSubEncrypt(Text);//call random encryption function
         break;
       case(98):
         printf("custom key encryption selected\n");
-        //call custom encryption function
+        customSubEncrypt(Text);//call custom encryption function
         break;
     }
 
 
 }
-/*readfile()
-{
-  FILE *filePointer = fopen("subkey", "r");
-}*/
+
 void randSubEncrypt(char* text)
 {
   char c;
   char code[26] = {'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'};
-
   printf("The coce has been erencrypted with the following key:\na = q\nb = w\nc = e\nd = r\ne = t\nf = y\ng = u\nh = i\ni = o\nj = p\nk = a\nl = s\nm = d\nn = f\no = g\np = h\nq = j\nr = k\ns = l\nt = z\nu = x\nv = c\nw = v\nx = b\ny = n\nz = m\n");
+//  printf("%s\n",code);
   printf("the encrypted text is:\n");
   subEncrypt(Text,code);
+}
 
-  /*c= Text[0];
-  printf("%c",c);*/
+void customSubEncrypt(char *Text)
+{
+  char code[26];
+  printf("you have selected to enter a custom encryption key\n");
+  printf("enter the substitution key in alphabetical order of the letters being replaced\n");
+  scanf("%s",code);
+  printf("confirmation; the encryption key is: %s\n", code);
+  subEncrypt(Text,code);
+
 }
 
 void subEncrypt(char *Text,char code[])
@@ -66,17 +68,17 @@ void subEncrypt(char *Text,char code[])
   int intInd;
   while(Text[i] != '\0' && strlen(Text) > i)
   {
-    char *encText = (char *) malloc(sizeof(char)*length);
+    char *encText= (char *) malloc(sizeof(char)*length);
     int encInd = tolower(Text[i]) - 'a';
-    if(encInd >= 0 && intInd <26 )
+    if(encInd>=0 && intInd <26 )
     {
-      encText[i] = code[encInd];
+      //encText[i] = code[encInd];
+      printf("%c", code[encInd]);
     }
     else
     {
-      encText[i]= Text[i];
+      printf("%c",Text[i]);
     }
-    printf("%c",encText[i]);
     i++;
   }
 }

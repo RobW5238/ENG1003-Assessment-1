@@ -215,5 +215,4 @@ void bruteForceRot(char* enText)
     } while(rKey<26);
   printf("\n" );
   return;
-  }
 }
