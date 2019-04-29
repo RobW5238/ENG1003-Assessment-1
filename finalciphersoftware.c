@@ -17,6 +17,7 @@ void subEncrypt();
 void customSubEncrypt();
 void substitutionDecryption();
 void subDecrypt();
+void dicSearchFunction();
 
 
 int main(void)
@@ -81,7 +82,7 @@ void encrypt()
 
 void decrypt ()
   {
-    fflush(stdin);
+    fflush(stdin);//again, clears the standard input, i ended up using this lots because it sometimes solved problems
     int key;
     char m;
     char option;
@@ -106,8 +107,7 @@ void decrypt ()
         substitutionDecryption();
         break;
     }
-    //scanf("%s",&enText);
-    //fflush(stdin);
+
 
   }
 void rotationDecryption()
@@ -120,9 +120,9 @@ void rotationDecryption()
     printf(" .\n");
     printf(" .\n");
     printf("Enter the message to be decrypted;\n\n");
-    gets(enText);
+    gets(enText);//user input
     //scanf("enText");
-    if(enText[0]<=32 && enText[0]>=0 )
+    if(enText[0]<=32 && enText[0]>=0 )//prints error if the user enteres something that isnt a letter, number or character
     {
       printf("error\n");
       main();
@@ -135,13 +135,13 @@ void rotationDecryption()
         printf("\nenter the value of the decryption key;\n" );
         scanf("%d",&key);
         printf("the software decrypted message:\n" );
-        DecRotateKey(enText, key);
+        DecRotateKey(enText, key);//calls the rotation cipher decryption function
         break;
 
       case 98:
         printf("\nyou have selected to attempt to automatically decrypt the message\n\n");
         printf("The decryption software will now present you with\n25 possible decryptions, select the correct one:\n\n");
-        bruteForceRot(enText);
+        bruteForceRot(enText);//calls for a brute force attack on the rotation cipher
         break;
     }
 
@@ -332,13 +332,12 @@ void subEncrypt(char *Text,char *code)
     int intInd;
     printf("confirmation; the encryption key is: %s\n", code);
     printf("the encrypted message is:\n");
-    while(Text[i] != '\0' && strlen(Text) > i)
+    while(Text[i] != '\0' && strlen(Text) > i)//the code will loop whilever its not at the end of the string, indicated by \0
     {
       char *encText= (char *) malloc(sizeof(char)*length);
-      int encInd = tolower(Text[i]) - 'a';
+      int encInd = tolower(Text[i]) - 'a'; // a very simple way of making all the letters lowercase and easy to work with, requires the ctype library
       if(encInd>=0 && intInd <26 )
       {
-        //encText[i] = code[encInd];
         printf("%c", code[encInd]);
       }
       else
@@ -393,4 +392,33 @@ void subDecrypt(char *encText,char *code)
       }
       i++;
     }
+  }
+
+int dicSearchFunction(*char deText)/* intended for this to cross reference the decrypted messages from
+                                      the brute force attack with words in a basic dictionary, ran out of time */
+  {
+    int key = 1;
+    int test;
+    int val =0;
+    char string[50];
+    int t = 0;
+    char deText[100];
+    FILE *filePointer = fopen("dictionary.txt", "r"); //opens the file called dictionary.txt in the 'read' format
+    printf("text received\n" );
+    if (filePointer == NULL)
+    {
+      printf("cant open file\n");// if the file is missing, this should print
+    }
+    printf("dic opened\n");
+
+    while( fscanf(filePointer, "%s", string) ==1)
+      {
+        if(strstr(string, deText) !=0)// this compares the strings, looking for a match
+        {
+          val++;//this counts the number of times that 'deText' appears in the provided dictionary
+        }
+      }
+    printf("The word was found %d times\n", val);/*if the value is more than 0, then there is a good chance that the roation key has been cracked
+    */
+
   }
