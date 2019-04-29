@@ -25,15 +25,45 @@ int main(void)
 void rotationCipher(char* Text, int key)
 {
   int i=0;
-  int val;
-  char encTxt;
-
-  while(Text[i] != '\0' && strlen(Text)-1 > i)
+  int intText=0;
+  int val=0;
+  char deText;
+  while(Text[i] != '\0' && strlen(Text) > i)
   {
-    val = ((int)Text[i] + key);
-    encTxt = (char)(val);
-    printf ("%c", encTxt);
-    i++;
+    intText= Text[i];
+    if(intText>=97 && intText+key>122) //rotates the key to keep the code working within the hindu arabic alphabet
+    {
+      intText=intText-26;
+      printf(".\n");
+    }
+    if(intText>=97 && intText<=150)//lower case
+    {
+      val = ((int)intText + key);
+      deText = val;//(char)(val);
+      //deText;
+      printf ("%c", deText);
+      i++;
+    }
+    if(intText>=65 && intText+key>90)
+    {
+      //printf("rotated\n");
+      intText=intText-26;
+    }
+
+    if(intText>=65 && intText<=90)//upper case
+    {
+      val = ((int)intText + key);
+      deText = (char)(val);
+      //deText;
+      printf ("%c", deText);
+      i++;
+    }
+    if(intText>=32 && intText<=64)
+    {
+      printf ("%c",intText);
+      i++;
+      printf("char\n" );
+    }
   }
-printf("\n\n" );
+  printf("\n\n" );
 }
