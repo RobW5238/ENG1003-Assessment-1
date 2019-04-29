@@ -110,7 +110,6 @@ void bruteForce(char* enText)
         }
         if(intText>=97 && intText<=150)//lower case
         {
-
           val = ((int)intText - rKey);
           deText = (char)(val);
           //deText;
@@ -122,7 +121,7 @@ void bruteForce(char* enText)
           //printf("rotated\n");
           intText=intText+26;
         }
-        if(intText>=65 && intText<=150)//upper case
+        if(intText>=65 && intText<=97)//upper case
         {
           val = ((int)intText - rKey);
           deText = (char)(val);

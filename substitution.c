@@ -14,15 +14,19 @@ int c;
 
 int main()
 {
+  char Text[100];
+  int c;
+
   printf("substitution cipher selected\n\n");
   printf("NOTE: substitution cipher requires use of an external file containing the key\n\n");
   printf("enter some text to be encrypted\n\n");
   scanf("%s",Text);
+  fflush(stdin);
   printf("\ntext received\n\n");
   printf("choose one of the folllowing:\n\n");
   printf("a) encrypt with rand key\n\n");
   printf("b) encrypt with custom key\n\n");
-  fflush(stdin);
+
   scanf("%c", &c);
 
   switch(c)
@@ -56,7 +60,6 @@ void customSubEncrypt(char *Text)
   printf("you have selected to enter a custom encryption key\n");
   printf("enter the substitution key in alphabetical order of the letters being replaced\n");
   scanf("%s",code);
-  printf("confirmation; the encryption key is: %s\n", code);
   subEncrypt(Text,code);
 
 }
@@ -66,6 +69,8 @@ void subEncrypt(char *Text,char code[])
   int i=0;
   int length = strlen(Text);
   int intInd;
+  printf("confirmation; the encryption key is: %s\n", code);
+  printf("the encrypted message is:\n");
   while(Text[i] != '\0' && strlen(Text) > i)
   {
     char *encText= (char *) malloc(sizeof(char)*length);

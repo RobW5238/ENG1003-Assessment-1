@@ -1,4 +1,0 @@
-C:\Users\Robert\OneDrive - The University Of Newcastle\ENG1003\Assessments\assessment 2 - decryption\encrypt_decrypt_combo.c: In function 'decrypt':
-C:\Users\Robert\OneDrive - The University Of Newcastle\ENG1003\Assessments\assessment 2 - decryption\encrypt_decrypt_combo.c:218:1: error: expected declaration or statement at end of input
- }
- ^
